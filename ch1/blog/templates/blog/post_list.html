@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for post in post_list %}
+    <ul>
+        <li><a href="{{ post.id }}"><h3 style="display: inline;">{{ post.title }}</h3><small>{{ post.created_at }}</small></a></li>
+    </ul>
+    {% endfor %}
+
+{% endblock %}

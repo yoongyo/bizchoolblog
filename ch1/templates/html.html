@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- summernote -->
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.js"></script>
+    
+    <!-- 왼쪽 토글 버튼 -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+    $(function(){
+      $(".headC").click(function(){
+        $(".headB").toggle();
+      });
+    });
+    </script>
+    <style>
+      *{
+        margin: 0;
+      }
+      header{
+        border-bottom: 1px solid #EEEEEE;
+        position: fixed;
+        top:0;
+        width:100%;
+
+      }
+      header #mi{
+        padding: 0 30%;
+        opacity: 0.5;
+      }
+      article{
+        margin: 0;
+        clear: both;
+      }
+      article div{
+        padding: 140px 30% 0 30%;
+      }
+      .headC{
+        margin-right: 10px;
+        padding:0;
+        border: none;
+        background:none;
+        font-size: 28px;
+        opacity: 0.5;
+        cursor: pointer;
+      }
+      .headB{
+        display: none;
+      }
+      header .container-small{
+        align-items: center;
+        justify-content: space-between;
+      }
+    </style>
+
+</head>
+
+<body>
+  <header>
+    <div class="container-small">
+      <button type="button" class="headC">
+        <span class="fa fa-bars" title="MENU"></span>
+      </button> 
+
+      <nav class="headB">
+          {% for category in category_list %}
+          <ul>
+            <li><a href="{{ category }}"/>{{ category }}</a></li>
+          </ul>
+          {% endfor %}
+      </nav>
+      <div id="mi">
+          <h1>bizchool</h1>
+      </div>
+    </div>
+    
+  </header>
+  <article>
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+  </article>
+
+
+
+  <footer>
+
+  </footer>
+</body>
+</html>
