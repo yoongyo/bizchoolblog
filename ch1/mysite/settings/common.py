@@ -131,7 +131,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
+<<<<<<< HEAD
 STATIC_URL = '/https://yoongyo.github.io/static/'
+=======
+STATIC_URL = '/http://bizchool.pythonanywhere.com//static/'
+>>>>>>> 0e059c53b78f7708726ed241d15f3d4aeb28a974
 STATICFILES_DIRS = [
  os.path.join(BASE_DIR,  'mysite','static'),
 ]
@@ -158,8 +162,13 @@ LOGOUT_REDIRECT_URL = None
 AUTH_USER_MODEL = 'auth.User'
 
 
+<<<<<<< HEAD
 MEDIA_URL = 'https://yoongyo.github.io/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+=======
+MEDIA_URL = 'yoongyo.github.io/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'mysite','media')
+>>>>>>> 0e059c53b78f7708726ed241d15f3d4aeb28a974
 
 def uploaded_filepath(instance, filename):
     """
