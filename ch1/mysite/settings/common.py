@@ -133,6 +133,7 @@ USE_TZ = True
 
 STATIC_URL = '/https://bizchool.pythonanywhere.com//static/'
 
+
 STATICFILES_DIRS = [
  os.path.join(BASE_DIR,  'mysite','static'),
 ]
@@ -159,8 +160,6 @@ LOGOUT_REDIRECT_URL = None
 AUTH_USER_MODEL = 'auth.User'
 
 
-MEDIA_URL = 'yoongyo.github.io/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'mysite','media')
 
 def uploaded_filepath(instance, filename):
     """
