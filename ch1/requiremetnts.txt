@@ -1,0 +1,4 @@
+django~=1.11.0
+django-debug-toobar
+django-extensions
+django_summernote  

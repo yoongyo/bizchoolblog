@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+<form method="post" action="">
+    {% csrf_token %}
+    {{ form|safe }}
+    <br/>
+    <button type="submit">등록</button>
+</form>
+
+{% endblock %}
