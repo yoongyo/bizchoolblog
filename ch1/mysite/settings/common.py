@@ -17,10 +17,11 @@ from datetime import datetime
 from django.apps import apps as django_apps
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
-
+from os.path import abspath, dirname, join
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# Users/Jarvis/desktop/myblog/ch1/settings/common.py
+BASE_DIR = dirname(dirname(dirname(abspath(__file__))))
 
 
 # Quick-start development settings - unsuitable for production
@@ -32,7 +33,7 @@ SECRET_KEY = 'u+ce2p()2-$y1!akctmb4#q*=n05*k=xqr+&mx8n1x7(2(ywr3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -51,7 +52,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -130,9 +131,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/https://yoongyo.github.io/static/'
 STATICFILES_DIRS = [
- os.path.join(BASE_DIR, 'ch1', 'static'),
+ os.path.join(BASE_DIR,  'mysite','static'),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, '..', 'staticfiles')
 
@@ -157,8 +158,8 @@ LOGOUT_REDIRECT_URL = None
 AUTH_USER_MODEL = 'auth.User'
 
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_URL = 'https://yoongyo.github.io/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 def uploaded_filepath(instance, filename):
     """
