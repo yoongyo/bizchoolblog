@@ -21,6 +21,21 @@ from os.path import abspath, dirname, join
 import os, json
 from django.core.exceptions import ImproperlyConfigured
 
+with open("secrets.json") as f:
+    secrets = json.loads(f.read())
+
+
+# Keep secret keys in secrets.json
+def get_secret(setting, secrets=secrets):
+    try:
+        return secrets[setting]
+    except KeyError:
+        error_msg = "Set the {0} environment variable".format(setting)
+        raise ImproperlyConfigured(error_msg)
+
+
+SECRET_KEY = get_secret("SECRET_KEY")
+
 
 
 
