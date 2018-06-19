@@ -12,42 +12,26 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 import uuid
 from datetime import datetime
-
+import json
 from django.apps import apps as django_apps
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
 from os.path import abspath, dirname, join
 
 
+BASE1_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+ROOT_DIR = os.path.dirname(BASE_DIR)
 
+# .config_secret 폴더 및 하위 파일 경로
+CONFIG_SECRET_DIR = os.path.join(ROOT_DIR, '.config_secret')
+CONFIG_SECRET_COMMON_FILE = os.path.join(CONFIG_SECRET_DIR, 'settings_common.json')
+CONFIG_SECRET_DEBUG_FILE = os.path.join(CONFIG_SECRET_DIR, 'settings_debug.json')
+CONFIG_SECRET_DEPLOY_FILE = os.path.join(CONFIG_SECRET_DIR, 'settings_deploy.json')
 
+config_secret_common = json.loads(open(CONFIG_SECRET_COMMON_FILE).read())
 
-
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-# Users/Jarvis/desktop/myblog/ch1/settings/common.py
-
-BASE_DIR = dirname(dirname(dirname(abspath(__file__))))
-
-
-
-
-
-
-
-# Keep secret keys in secrets.json
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'u+ce2p()2-$y1!akctmb4#q*=n05*k=xqr+&mx8n1x7(2(ywr3'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-
-
-
-# Application definition
+SECRET_KEY = config_secret_common['django']['secret_key']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -63,7 +47,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -78,7 +61,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'templates')
+            os.path.join(ROOT_DIR, 'mysite', 'templates')
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -92,22 +75,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'mysite.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
-
-# Password validation
-# https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
+# WSGI_APPLICATION = 'mysite.wsgi.application'
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -125,30 +93,15 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/1.11/topics/i18n/
+LANGUAGE_CODE = 'ko-kr'
 
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 
 USE_L10N = True
 
 USE_TZ = True
-
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.11/howto/static-files/
-
-STATIC_URL = '/https://bizchool.pythonanywhere.com//static/'
-
-
-STATICFILES_DIRS = [
- os.path.join(BASE_DIR,  'mysite','static'),
-]
-STATIC_ROOT = os.path.join(BASE_DIR, 'mysite', 'staticfiles')
 
 
 # 기본 로그인 페이지 URL을 지정
