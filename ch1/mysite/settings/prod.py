@@ -1,10 +1,24 @@
 from .common import *
 
 
-
 DEBUG = False
+SECRET_KEY = 'u+ce2p()2-$y1!akctmb4#q*=n05*k=xqr+&mx8n1x7(2(ywr3'
+
+ALLOWED_HOSTS = ['bizchool.pythonanywhere.com']
+
+MEDIA_URL = 'https://bizchool.pythonanywhere.com/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'mysite', 'media')
+
+STATIC_URL = "https://bizchool.pythonanywhere.com/static/"
+STATIC_ROOT = os.path.join(BASE_DIR, 'mysite', 'staticfiles')
 
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 """
 DATABASES = {
     'default': {
