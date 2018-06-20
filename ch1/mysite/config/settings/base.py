@@ -16,7 +16,6 @@ import json
 from django.apps import apps as django_apps
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
-from os.path import abspath, dirname, join
 
 
 BASE1_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -140,7 +139,7 @@ def get_attachment_model():
     Returns the Attachment model that is active in this project.
     """
     try:
-        from .models import AbstractAttachment
+        from blog.models import AbstractAttachment
         klass = django_apps.get_model(summernote_config["attachment_model"])
         if not issubclass(klass, AbstractAttachment):
             raise ImproperlyConfigured(
