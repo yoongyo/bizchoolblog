@@ -5,8 +5,6 @@ from .models import Post, Category
 from .forms import PostForm
 
 
-# post_list = ListView.as_view(model=Post)
-# post_detail = DetailView.as_view(model=Post, pk_url_kwarg='id')
 category_list = ListView.as_view(model=Category)
 
 def post_list(request, name):
@@ -21,6 +19,7 @@ def post_list(request, name):
     return render(request, 'blog/post_list.html', {
         'category_list': qs1,
         'post_list': qs,
+        'filter': filter
     })
 
 

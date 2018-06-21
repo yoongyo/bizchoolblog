@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+    <h2>{{ filter }}</h2>
     {% for post in post_list %}
     <ul>
         <li><a href="{{ post.id }}"><h3 style="display: inline;">{{ post.title }}</h3><small>{{ post.created_at }}</small></a></li>
