@@ -11,7 +11,7 @@ class Category(models.Model):
         return self.name
 
 class Post(summer_model.Attachment):
-    category = models.ForeignKey(Category)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     title = models.CharField(max_length=20)
     content = summer_fields.SummernoteTextField(default='')
     created_at = models.DateTimeField(auto_now_add=True)
