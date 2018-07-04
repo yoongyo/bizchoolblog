@@ -1,6 +1,3 @@
-from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
-from django_summernote import fields as summer_fields
-from django.forms import forms
 from .models import Post
 from django import forms
 
@@ -14,5 +11,11 @@ class PostForm(forms.ModelForm):
             'content',
         }
         exclude = ()
+
+    def save(self, commit=True):
+        post = Post(**self.cleaned_data)
+        if commit:
+            post.save()
+        return post
 
 

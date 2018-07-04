@@ -1,8 +1,10 @@
-{% extends "base.html" %}
+{% extends "base1.html" %}
 
 {% block content %}
+
     <h1>{{ post.title }}</h1>
     <p>{{ post.content|safe }}</p>
     <hr>
     <p>{{ post.created_at }}</p>
+
 {% endblock %}

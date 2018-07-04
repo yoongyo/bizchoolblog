@@ -1,5 +1,6 @@
 from django_summernote import models as summer_model
 from django_summernote import fields as summer_fields
+from django.shortcuts import reverse
 from django.db import models
 
 
@@ -18,3 +19,6 @@ class Post(summer_model.Attachment):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('blog:post_detail', args=[self.category, self.id])
