@@ -26,7 +26,7 @@ INTERNAL_IPS = ['127.0.0.1']
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
- os.path.join(BASE_DIR,  'mysite','static'),
+ os.path.join(BASE_DIR,  'mysite','mysite','staticfiles'),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'mysite', 'staticfiles')
 

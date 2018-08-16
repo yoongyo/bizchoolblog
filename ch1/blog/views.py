@@ -42,7 +42,7 @@ def post_new(request):
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save()
-            return redirect('/blog/')
+            return redirect(post)   # get_absolute_url()  =>  post_detail
      else:
         form = PostForm()
      return render(request, 'blog/post_form.html', {
@@ -56,7 +56,7 @@ def post_edit(request, name, id):
         form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             post = form.save()
-            return redirect('/blog/')
+            return redirect(post)
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_form.html', {

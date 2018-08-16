@@ -18,13 +18,14 @@ DATABASES = {
 
 
 
-MEDIA_URL = 'https://bizchool.pythonanywhere.com/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'mysite', 'media')
+MEDIA_URL = "https://bizchool.pythonanywhere.com/media/"
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'mysite', 'media')
+MEDIA_ROOT = '/home/bizchool/bizchoolblog/ch1/mysite/mysite/media/django-summernote'
 
 STATIC_URL = "https://bizchool.pythonanywhere.com/static/"
-STATIC_ROOT = os.path.join(BASE_DIR, 'mysite', 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
- os.path.join(BASE_DIR,  'mysite','static'),
+ os.path.join(BASE_DIR, 'staticfiles'),
 ]
 
 
