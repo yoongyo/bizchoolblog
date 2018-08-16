@@ -18,8 +18,12 @@ DATABASES = {
 
 
 
+<<<<<<< HEAD
 MEDIA_URL = "https://bizchool.pythonanywhere.com/media/"
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'mysite', 'media')
+=======
+MEDIA_URL = '/media/'
+>>>>>>> c31f123974ba6a7060776205ce6329f0391b283d
 MEDIA_ROOT = '/home/bizchool/bizchoolblog/ch1/mysite/mysite/media/django-summernote'
 
 STATIC_URL = "https://bizchool.pythonanywhere.com/static/"

@@ -1,6 +1,3 @@
-from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
-from django_summernote import fields as summer_fields
-from django.forms import forms
 from .models import Post
 from django import forms
 
